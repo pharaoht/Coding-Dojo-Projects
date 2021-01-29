@@ -1,0 +1,193 @@
+.main {
+  background-color: #245076;
+  margin: 50px;
+}
+/*Python logo*/
+.top-half {
+  display: flex;
+}
+
+.header-left {
+  display: inline-block;
+  width: 50%;
+  padding-left: 5%;
+  padding-top: 5%;
+  text-align: center;
+}
+img {
+  width: 100%;
+}
+/*Python logo*/
+
+/*Search bar*/
+.header-right {
+  display: inline-block;
+  width: 50%;
+  padding: 4%;
+}
+
+.search-bar {
+  background-color: #444444;
+  float: right;
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border-radius: 10px;
+}
+
+.search-text {
+  padding-right: 25px;
+  color: white;
+  width: 60%;
+  float: right;
+  text-align: right;
+}
+
+input {
+  height: 30px;
+  text-align: center;
+}
+.ac {
+  color: yellow;
+}
+
+button {
+  background-color: #245076;
+  color: white;
+  height: 30px;
+  width: 50px;
+  border-radius: 2px;
+}
+/*Search bar*/
+
+/*Nav bar*/
+.nav-bar {
+  padding-left: 10%;
+  padding-right: 10%;
+}
+.holder-nav {
+  display: flex;
+  background-image: linear-gradient(#3977ad, #487fad, #3977ad);
+  border-radius: 10px;
+  box-shadow: 5px 3px 1px black;
+}
+.link-btns {
+  width: 20%;
+  padding: 20px;
+  text-align: center;
+  color: white;
+  text-decoration: none;
+}
+/*Nav bar*/
+
+/*Bottom-half*/
+.bottom-half {
+  display: flex;
+  padding-left: 5%;
+  padding-right: 11%;
+}
+
+.left-side {
+  width: 30%;
+  margin-right: 3%;
+}
+.left-side li {
+  list-style-type: none;
+  text-align: center;
+  color: white;
+  padding-bottom: 10px;
+}
+
+.right-side {
+  width: 70%;
+}
+
+.fa-angle-double-right {
+  color: yellow;
+}
+
+.r-top-text {
+  text-align: center;
+  color: aliceblue;
+}
+
+.r-bottom-text {
+  color: yellow;
+}
+
+.r-bottom-text ul {
+  padding: 0;
+}
+
+.r-bottom-text li {
+  list-style-type: none;
+  text-align: center;
+  padding-bottom: 10px;
+}
+
+#zen {
+  color: white;
+}
+/*Bottom-half*/
+
+/*bottom-mid */
+section {
+  background-color: white;
+}
+
+.bottom-mid {
+  display: flex;
+}
+
+.bm-left-side {
+  width: 50%;
+  padding-left: 12%;
+  margin-right: 30px;
+}
+
+.bm-right-side {
+  width: 50%;
+  padding-right: 12%;
+}
+
+hr {
+  height: 2px;
+  background-color: #bfdaf0;
+}
+/*bottom-mid */
+
+.footer {
+  text-align: center;
+  color: white;
+  display: flex;
+  text-align: center;
+  padding-left: 200px;
+  padding-right: 200px;
+  padding-top: 40px;
+}
+
+.text-ul {
+  color: #bfdaf0;
+}
+
+h3 {
+  text-align: center;
+}
+
+.p-text {
+  text-align: center;
+}
+
+.ft-ul {
+  color: #bfdaf0;
+  font-size: 15px;
+  display: inline-block;
+  width: 33.3%;
+}
+
+.p-footer {
+  text-align: center;
+  color: #bfdaf0;
+  padding-bottom: 10px;
+}

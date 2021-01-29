@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>Registration Form</title>
+</head>
+<body >
+    <div class="container col-md-5">
+        <div><h1>My Registration Form</h1></div>
+         <section>
+             <form action="https://google.com" method="POST">
+                <label for='first_name'>
+                    First Name: <input class="form-control" type="text" id='first_name' name='first_name'>
+                </label>
+                <br>
+                <label for='last_name'>
+                    Last Name: <input class="form-control"  type="text" id='last_name' name='last_name'>
+                </label>
+                <br>
+                <label for='email'>
+                    Email: <input class="form-control" type="text" id='email' name='email'>
+                </label>
+                <br>
+                <label for='password'>
+                    Password: <input class="form-control" type="text" id='password' name='password'>
+                </label>
+                <br>
+                <label for='confirm_password'>
+                    Confirm Password: <input class="form-control" type="text" id='confirm_password' name='confirm_password'>
+                </label>
+                <br>
+                <label for='birthday'>
+                    Birthday: <input class="form-control" type='date' id='birthday' name='birthday'>
+                </label>
+                <br>
+                <label for='male'>
+                    Male: <input  type='radio' id='male' name='gender' value='male'>
+                </label>
+                <label for='female'>
+                    Female: <input type='radio' id='female' name='gender' value='female'>
+                </label>
+                <label for='decline'>
+                    Prefer Not To Say: <input type='radio' id='decline' name='gender' value='decline'>
+                </label>
+                <br>
+                <label for='tell_us'>
+                    A short description about yourself!
+                </label>
+                <br>
+                <textarea class='form-control' id='tell_us'></textarea>
+               
+                <label for='language'>
+                    Favorite Language
+                    <select class="form-control" name='language'>
+                        <option value="javascript">JavaScript</option>
+                        <option value="c#">C#</option>
+                        <option value="python">Python</option>
+                        <option value="java">Java</option>
+                    </select>
+                </label>
+                <br>
+                <button type="submit" class="form-control">Submit</button>
+
+        </form>
+    </section>
+    
+
+    </div>
+</body>
+</html>
