@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("#1").click(function () {
+                alert("button been click")
+            })
+            $("#2").click(function () {
+                $("#3").hide();
+            })
+            $("#4").click(function(){
+                $("#five").show();
+            })
+            $("#six").click(function(){
+                $('#seven').toggle();
+            })
+            $("#eight").click(function(){
+                $('#nine').slideDown("slow")
+            })
+            $("#ten").click(function(){
+                $('#eleven').slideUp("slow")
+            })
+            $('#twelve').click(function(){
+                $('#thirthteen').slideToggle('slow');
+            })
+            $("#fourthteen").click(function(){
+                $("#fifthteen").fadeIn('slow');
+            });
+            $("#sixteen").click(function(){
+                $("#seventeen").fadeOut('slow')
+            })
+            $("#eightteen").click(function(){
+                $("#nineteen").addClass("cool")
+            })
+            $("#twenty").click(function(){
+                (".cool").before($("h2"))
+            })
+            $("#twentytwo").click(function(){
+                (".cool").after($("h2"))
+            })
+            $("twentyfour").click(function(){
+                $(".cool").append("#twentyfive");
+            })
+            $("#twentysix").click(function(){
+                $("#twentyseven").html();
+            })
+            $("input").change(function () {
+                    var $input = $(this);
+                    $("#t").html(".attr( 'checked' ): <b>" + $input.attr("checked") + "</b><br>" +
+                        ".prop( 'checked' ): <b>" + $input.prop("checked") + "</b><br>" +
+                        ".is( ':checked' ): <b>" + $input.is(":checked") + "</b>");
+                }).change();
+            $("#thirty").click(function(){
+                var val = $(".num").val()
+                console.log(val)
+                })
+            var str = $("#eew").first().text();
+            $("ee").last().html(str)
+            })
+    </script>
+</head>
+<body>
+    <div class="container">
+            <div class="function">
+                <div class="header">
+                    <h2>.Click</h2>
+                </div>
+               <div class="paragraph">
+                    <button id='1'>click me</button>
+                    <p>Bind an event handler to the "click" JavaScript event, or trigger that event on an element</p>
+               </div>  
+                 <hr>
+            </div>
+            <div class="function">
+                <div class="header">
+                    <h2>.hide</h2>
+                </div>
+                <div class="paragraph">
+                    <button id='2'>click me</button>
+                    <p id='3'>Hide the matched elements.</p>
+                </div>
+                <hr>
+            </div>
+            <div class="function">
+                <div class="header">
+                    <h2>.show</h2>
+                </div>
+                <div class="paragraph">
+                    <button id="4">click me</button>
+                    <p id="five">Display the matched elements.</p>
+                </div>
+                <hr>
+            </div>
+            <div class="function">
+                <div class="header">
+                    <h2>.toggle</h2>
+                </div>
+                <div class="paragraph">
+                    <button id="six">click me</button>
+                    <p id="seven">Display or hide the matched elements.</p>
+                </div>
+                <hr>
+            </div>
+            <div class="function">
+                <div class="header">
+                    <h2>.slideDown</h2>
+                </div>
+                <div class="paragraph">
+                    <button id="eight">click me</button>
+                    <p id="nine">Display the matched elements with a sliding motion.</p>
+                </div>
+                <hr>
+            </div>
+            <div class="function">
+                <div class="header">
+                    <h2>.slideUp</h2>
+                </div>
+                <div class="paragraph">
+                    <button id="ten">click me</button>
+                    <p id="eleven">Hide the matched elements with a sliding motion.</p>
+                </div>
+                <hr>
+            </div>
+            <div class="function">
+                <div class="header">
+                    <h2>.slideToggle</h2>
+                </div>
+                <div class="paragraph">
+                    <button id='twelve'>click me</button>
+                    <p id='thirthteen'>Display or hide the matched elements with a sliding motion</p>
+                </div>
+                <hr>
+            </div>
+            <div class="function">
+                <div class="header">
+                    <h2>.fadeIn</h2>
+                </div>
+                <div class="paragraph">
+                    <button id="fourthteen">click me</button>
+                    <p id="fifthteen">Display the matched elements by fading them to opaque</p>
+                </div>
+                <hr>
+            </div>
+            <div class="function">
+                <div class="header">
+                    <h2>.fadeOut</h2>
+                </div>
+                <div class="paragraph">
+                    <button id="sixteen">click me</button>
+                    <p id="seventeen">Hide the matched elements by fading them to transparent.</p>
+                </div>
+                <hr>
+            </div>
+            <div class="function">
+                <div class="header">
+                    <h2>.addClass</h2>
+                </div>
+                <div class="paragraph">
+                    <button id="eightteen">click me</button>
+                    <p id='nineteen'>Adds the specified class(es) to each element in the set of matched elements</p>
+                </div>
+                <hr>
+            </div>
+            <div class="function">
+                <div class="header">
+                    <h2>.before</h2>
+                </div>
+                <div class="paragraph">
+                    <button id="twenty">click me</button>
+                    <p id='twentyone'>Insert content, specified by the parameter, before each element in the set of matched elements</p>
+                </div>
+                <hr>
+            </div>
+            <div class="function">
+                <div class="header">
+                    <h2>.after</h2>
+                </div>
+                <div class="paragraph">
+                    <button id="twentytwo">click me</button>
+                    <p id="twentythree">Insert content, specified by the parameter, after each element in the set of matched elements.</p>
+                </div>
+                <hr>
+            </div>
+            <div class="function">
+                <div class="header">
+                    <h2>.append</h2>
+                </div>
+                <div class="paragraph">
+                    <button id="twentyfour">click me</button>
+                    <p id="twentyfive">Insert content, specified by the parameter, to the end of each element in the set of matched elements.</p>
+                </div>
+                <hr>
+            </div>
+            <div class="function">
+                <div class="header">
+                    <h2>.html</h2>
+                </div>
+                <div class="paragraph">
+                    <button id='twentysix'>click me</button>
+                    <p id='twentyseven'>Get the HTML contents of the first element in the set of matched elements.</p>
+                </div>
+                <hr>
+            </div>
+            <div class="function">
+                <div class="header">
+                    <h2>.attr</h2>
+                </div>
+                <div class="paragraph">
+                    <button>click me</button>
+                    <input id="check1" type="checkbox" checked="checked">
+                    <p id='t'></p>
+                </div>
+                <hr>
+            </div>
+            <div class="function">
+                <div class="header">
+                    <h2>.val</h2>
+                </div>
+                <div class="paragraph">
+                    <button id="thirty">click me</button>
+                    <input class="num" type="number" value="3" />
+                </div>
+                <hr>
+            </div>
+            <div class="function">
+                <div class="header">
+                    <h2>.text</h2>
+                </div>
+                <div class="paragraph">
+                    <button id='eew'>click me</button>
+                    <p id='ee'>d</p>
+                    
+                </div>
+                <hr>
+            </div>
+            
+    </div>
+    
+</body>
+</html>
+

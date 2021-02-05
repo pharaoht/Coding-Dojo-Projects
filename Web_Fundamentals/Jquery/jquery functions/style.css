@@ -1,0 +1,38 @@
+.container {
+  margin: 50px;
+  border: 1px solid black;
+  padding: 100px;
+}
+
+p {
+  border: 1px solid black;
+  margin-left: 25%;
+  width: 50%;
+}
+.header {
+  display: block;
+}
+h2 {
+  text-align: center;
+}
+
+.paragraph {
+  display: flex;
+  padding: 10px;
+}
+
+#five {
+  display: none;
+}
+
+#nine {
+  display: none;
+}
+
+#fifthteen {
+  display: none;
+}
+
+.cool {
+  color: blue;
+}

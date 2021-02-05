@@ -1,11 +1,13 @@
 var num;
 function rollOne(){
-    
-    num = Math.floor(Math.random() * 7) + 1;
+    //our random number
+    num = Math.floor(Math.random() * 6) + 1;
+    //return that number so all functions can hace access to it
     return num;
 }
 
 function playFives(num){
+
     for(var i = 0; i < num; i++){
         sum = rollOne();
         if(sum == 5){
