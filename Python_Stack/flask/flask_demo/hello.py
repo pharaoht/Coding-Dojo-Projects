@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, render_template
 app = Flask(__name__)
 
 
@@ -7,17 +7,21 @@ def hello_world():
     return 'Hello World!'
 
 
-@app.route('/hello/<name>')
-def hello(name):
-    print(name)
-    return "Hello," + name
+@app.route('/hello/<name>/<num>')
+def hello(num, name):
+    return render_template("index.html", num=int(num), name=name)
 
 
-@app.route('user/<username>/<id>')
+@app.route('/user/<username>/<id>')
 def show_user_profile(username, id):
     print(username)
     print(id)
     return "username: " + username + ", id" + id
+
+
+@app.errorhandler(404)
+def page_not_found(e):
+    return
 
 
 if __name__ == "__main__":

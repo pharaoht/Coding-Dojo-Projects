@@ -7,3 +7,30 @@ function strRev(str){
 }
 
 strRev("Monn be good No")
+
+
+
+
+function strong(str){
+    var newstring = []
+    var res = str.split(" ")
+    for(var i = 0; i < res.length; i++){    
+        console.log(res[i][0])
+    }
+    
+}
+strong("National Basketball Association")
+
+
+
+
+
+
+
+function myCoins(cents){
+    dic = {"quater": 25, "dimes":10, "nickles": 5, "pennies":1}
+
+    for(var i = 0; i < dic.length; i++){
+        
+    }
+}
