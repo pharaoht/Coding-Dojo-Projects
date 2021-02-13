@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}" />
+    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"/>
+    <title>Document</title>
+</head>
+<body>
+
+<table class="table">
+    <body>
+        <tr>
+                    <th scope="col">First</th>
+                    {% for user in users %}
+                    <td>{{ user['first_name'] }}</td>
+                    {% endfor %}
+
+        </tr>
+        <tr>
+            <th scope="col">Last</th>
+            {% for user in users %}
+            <td>{{ user['last_name'] }}</td>
+             {% endfor %}
+        </tr>
+    <tr>
+        <th scope="col">Full</th>
+        {% for user in users %}
+        <td>{{ user['first_name'] }} - {{ user['last_name'] }}</td>
+        {% endfor %}
+    </tr>
+    </body>
+
+</table>
+    
+</body>
+</html>
+
+{% for student in students %}
+<p>{{ student['name'] }} - {{ student['age'] }}</p>
+{% endfor %}
