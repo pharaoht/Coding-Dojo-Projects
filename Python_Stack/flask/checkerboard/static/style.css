@@ -1,0 +1,27 @@
+.container {
+  background-color: burlywood;
+  margin: 100px;
+  padding: 30px;
+}
+
+.box {
+  background-color: red;
+  height: 110px;
+  border: 1px solid black;
+  width: 11%;
+  display: inline-block;
+  margin: 0;
+}
+.di {
+  background-color: black;
+  height: 110px;
+  border: 1px solid black;
+  width: 11%;
+  display: inline-block;
+  margin: 0;
+}
+.box-holder {
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+}
