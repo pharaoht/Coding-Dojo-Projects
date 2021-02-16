@@ -1,0 +1,16 @@
+.container {
+  margin-top: 50px;
+  display: flex;
+}
+
+.holder {
+}
+
+.oho {
+  width: 100%;
+}
+
+hr {
+  width: 50%;
+  float: left;
+}
