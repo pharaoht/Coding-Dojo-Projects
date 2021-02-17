@@ -1,9 +1,19 @@
 from django.http import JsonResponse
-from django.shortcuts import render, HttpResponse
+from django.shortcuts import render, HttpResponse, render
 
 
 def index(request):
     return HttpResponse("this is the equivalent of app.route('/')!")
+
+
+def index2(request):
+    context = {
+        "name": "Noelle",
+        "favorite_color": "blue",
+        "pets": ["bruce", "duke", "Neil"]
+    }
+    return render(request, 'index.html', context)
+
 
 # every functions first argument will be a request object
 #
