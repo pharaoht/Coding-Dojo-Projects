@@ -53,3 +53,10 @@ print(x)
 #     console.log(newstring)
 # }
 # strong("National Basketball Association")
+
+thisdict = {
+    "brand": "Ford",
+    "model": "Mustang",
+    "year": 1964
+}
+print(thisdict["brand"])

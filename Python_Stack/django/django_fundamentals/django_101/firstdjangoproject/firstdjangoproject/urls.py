@@ -3,7 +3,12 @@ from django.urls import path
 from . import views
 # the . indicates that the views file can be found in the same directory as this file
 urlpatterns = [
-    path('', views.index)
+    path('', views.index),
+    path('form', views.some_function),
+    path('app', views.index1),
+    path('users', views.create_users),
+    path('success', views.success)
+
     #path('another_route', views.another_method),
     # path('redirected_route', views.redirected_method
 ]
