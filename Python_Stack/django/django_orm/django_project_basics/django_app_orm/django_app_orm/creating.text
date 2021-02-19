@@ -1,3 +1,11 @@
+Commands:
+python manage,py shell
+from app_name.models import *
+python manage.py makemigrations
+python manage.py migrate
+
+
+
 Creating a new record
 ClassName.objects.create(field1="value for field1", field2="value for field2", etc.)
 
@@ -38,3 +46,23 @@ ClassName.objects.all().values() - shows all the values of a QuerySet (i.e. mult
 Ordering records
 ClassName.objects.all().order_by("field_name") - orders by field provided, ascending
 ClassName.objects.all().order_by("-field_name") - orders by field provided, descending
+
+
+
+
+
+You've probably noticed in the shell that printing whole objects just results in something like <Movie Object (1)>, 
+which is not particularly helpful. To change how our models display, we can override the __str__ method in the class. 
+This is pretty handy and shows how we can leverage some of Python's magic methods to make our lives easier.
+
+class Movie(models.Model):
+    # fields removed for brevity
+    def __str__(self):
+        return f"<Movie object: {self.title} ({self.id})>"
+
+
+
+
+
+
+

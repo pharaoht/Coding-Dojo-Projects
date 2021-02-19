@@ -1,0 +1,21 @@
+Users.obejects.create(first_name="John", last_name="Smith", email_address="johnsmith@mail.com", age=28)
+Users.obejects.create(first_name="Kyle", last_name="Long", email_address="kyle@mail.com", age=66)
+Users.obejects.create(first_name="Mike", last_name="Duke", email_address="dukemike@mail.com", age=68)
+
+Users.objects.all() 
+
+Users.objects.last() 
+
+
+Users.objects.first() 
+
+Users.objects.get(id=3)
+
+c = Users.objects.get(id=1)
+c.last_name = "pancakes"
+c.save()
+
+c = Users.objects.get(id=2)
+c.delete()
+
+Users.objects.all().order_by("first_name")

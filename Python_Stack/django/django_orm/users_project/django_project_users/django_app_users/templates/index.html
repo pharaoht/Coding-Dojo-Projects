@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'style.css' %}">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="main">
+        <div class="top">
+            <h2>All the Users</h2>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Age</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for user in all_users %}
+                    <tr>
+                        <th scope="row">{{user.id}}</th>
+                        <td>{{ user.first_name }} {{user.last_name}}</td>
+                        <td>{{user.email_address}}</td>
+                        <td>{{user.age}}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+              
+        
+        </div>
+        <hr>
+        <div>
+            <h2>Add User</h2>
+            <form action="/add_user" method="POST">
+                {% csrf_token %}
+                <div class="form">
+                    First Name: <input type="text" name="first_name">
+                    Last Name: <input type="text" name="last_name">
+                </div>
+                <div class="form">
+                    Email: <input type="email" name="email_address">
+                    Age: <input type="number" name="age" min="0" max="100">
+                </div>
+                <button type="submit">Add</button>
+
+            </form>
+
+        </div>
+    </div>
+
+    
+</body>
+</html>
+
+    
+
+    
