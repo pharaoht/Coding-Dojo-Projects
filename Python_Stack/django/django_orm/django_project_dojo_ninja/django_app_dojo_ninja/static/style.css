@@ -1,0 +1,23 @@
+.top {
+  display: flex;
+}
+
+.container {
+  margin-top: 50px;
+}
+
+.add-dojo {
+  width: 50%;
+}
+
+.add-ninja {
+  width: 50%;
+}
+
+.bottom {
+  display: flex;
+}
+
+.adojo {
+  width: 25%;
+}
