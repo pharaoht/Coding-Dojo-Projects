@@ -19,3 +19,18 @@ c = Users.objects.get(id=2)
 c.delete()
 
 Users.objects.all().order_by("first_name")
+
+
+
+For example, if we start with the exclude section, hopefully you find much of their description familiar. Then we reach this code snippet:
+
+Entry.objects.exclude(pub_date__gt=datetime.date(2005, 1, 3), headline='Hello')
+From this, we can assume their Entry class has attributes named pub_date and headline. Then we see this __gt and aren't sure what this means. Search the docs for a minute to see if you can figure it out. Hopefully you found this section, which explains that __gt means greater than. Neat!
+
+This example shows us the syntax for some of the more advanced queries we can run. By starting with an attribute, we can drill into that attribute with a variety of different field lookups. The syntax, as we have seen, is to use the double underscore and then the lookup keyword. For example, with our own Book model, we can filter on the title name:
+
+lil_books = Book.objects.filter(title__startswith="Little")
+We can also search by a field in the related object(s) by using a double underscore, and even apply lookups on fields within that object:
+
+books = Book.objects.filter(author__name="Louise May Alcott")
+books = Book.objects.filter(author__name__contains="Al")

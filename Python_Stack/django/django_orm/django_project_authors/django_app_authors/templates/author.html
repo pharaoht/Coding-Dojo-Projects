@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container">
+        <div>
+            <h1>Add a Author</h1>
+            <form action="/author/create" method="post">
+                {% csrf_token %}
+                <p>Name <input type="text" name="name" /></p>
+                <p>Notes<textarea name="notes"></textarea></p>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+        <div>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Id</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for person in allauthors %}
+                    <tr>
+                        <th scope="row">{{person.id}}</th>
+                        <td>{{person.name}}</td>
+                        <td><a href="author/{{person.id}}">view</a></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</body>
+
+</html>

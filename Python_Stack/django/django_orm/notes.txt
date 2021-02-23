@@ -1,0 +1,58 @@
+Altering Models After Creation
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+- Whenever we need to make changes to our models after the initial migration
+(i.e. add fields, remove fields, or alter properties of existing fields),
+we will need to re-run the makemigrations and migrate commands.
+Say, for example, you created a table, but then realized later you wanted to add another field. 
+
+    Option 1:
+    This is the quickest, simplest option. Type 1 and hit enter. You'll then see a prompt that asks what value you would like:
+    The value you provide should be compatible with the field type: type the value next to the >>> and hit enter. For example, if it's a CharField, you should provide a string (eg. "no value" or ""). For an IntegerField, provide a number value (eg. 0). Hint: for a DateField or DateTimeField, read the message above the >>> prompt!
+    The only exception is for a ForeignKeyField--the command line tool doesn't really allow for complex imports and retrievals, so you can actually specify a value for that field's primary key. In our case, that will be an integer.
+    Once done, don't forget to run migrate!
+
+    age = models.IntegerField(default=200)	# if no age is entered for a new/existing, age will be set to 200
+    age = models.IntegerField(null=True)	# if no age is provided, the field will remain empty
+
+class Author(models.Model):
+    name = models.CharField(max_length=255)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+class Book(models.Model):
+    title = models.CharField(max_length=255)
+    author = models.ForeignKey(Author, related_name="books", on_delete = models.CASCADE)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+One to Many Relationship
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+Notice that rather than having a simple integer field as our foreign key, the Book model has this line: models.ForeignKey(Author, related_name="books", on_delete = models.CASCADE). While the CRUD operations are fundamentally the same, let's take a look at how we create and read when we have a relationship between two models.
+
+CREATING
+Remember that by default, all fields are required. The created_at and updated_at fields will be populated automatically, but the other two fields must be set upon creation. Since title is a CharField, we can pass it a string; but the author field is expecting an instance of the Author class. So to create a record that has this foreign key relationship, we first need to have an instance of an Author, and then we can pass it like we have any other field:
+
+this_author = Author.objects.get(id=2)	# get an instance of an Author
+my_book = Book.objects.create(title="Little Women", author=this_author)	# set the retrieved author as the author of a new book
+    
+# or in one line...
+my_book = Book.objects.create(title="Little Women", author=Author.objects.get(id=2))
+READING
+Now say we are trying to view books with their associated authors. Joins in Django happen automatically. If you have a book object, you don't need to run any additional query to get information about the author. If we retrieve an instance of a book:
+
+some_book = Book.objects.get(id=5)
+Just like we are able to view the book's title, we can also view the book's author:
+
+some_book.title		# returns a string that is the title of the book
+some_book.author	# returns the Author instance associated with this book
+Because some_book.author is an instance of the Author class, we can now access the author's fields, like so:
+
+some_book.author.name		# return the name of the author of this book
+some_book.author.id		# returns the id of the author of this book
+Just as we are able to filter by other fields, we can also search based off of a ForeignKey relationship. This code will find all of the books by the author with ID 2:
+
+this_author = Author.objects.get(id=2)
+books = Book.objects.filter(author=this_author)
+    
+# one-line version:
+books = Book.objects.filter(author=Author.objects.get(id=2))

@@ -34,6 +34,7 @@ Deleting an existing record
 c = ClassName.objects.get(id=1)
 c.delete()
 
+ClassName.objects.all().delete()
 
 
 Other helpful methods
@@ -63,6 +64,26 @@ class Movie(models.Model):
 
 
 
+Many to Many 
+
+this_book = Book.objects.get(id=4)	# retrieve an instance of a book
+this_publisher = Publisher.objects.get(id=2)	# retrieve an instance of a publisher
+    
+# 2 options that do the same thing:
+this_publisher.books.add(this_book)		# add the book to this publisher's list of books
+# OR
+this_book.publishers.add(this_publisher)	# add the publisher to this book's list of publishers
+
+this_publisher.books.all()	# get all the books this publisher is publishing
+this_book.publishers.all()	# get all the publishers for this book
+
+this_book = Book.objects.get(id=4)	# retrieve an instance of a book
+this_publisher = Publisher.objects.get(id=2)	# retrieve an instance of a publisher
+    
+# 2 options that do the same thing:
+this_publisher.books.remove(this_book)		# remove the book from this publisher's list of books
+# OR
+this_book.publishers.remove(this_publisher)	# remove the publisher from this book's list of publishers
 
 
 

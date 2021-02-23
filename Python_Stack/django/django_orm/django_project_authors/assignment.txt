@@ -1,0 +1,71 @@
+Book.objects.create(title = "C Sharp")
+Book.objects.create(title = "Java")
+Book.objects.create(title = "Python")
+Book.objects.create(title = "Php")
+Book.objects.create(title = "Ruby")
+
+Author.objects.create(name = "Jane Austen")
+Author.objects.create(name = "Emily Dickinson")
+Author.objects.create(name = "Fyodor Dostoevsky")
+Author.objects.create(name = "William Shakespeare")
+Author.objects.create(name = "Lau Tzu")
+
+notes = models.CharField(max_length=500)
+
+
+c = Book.objects.get(id=1)
+c.title = "C#"
+c.save()
+
+c = Author.objects.get(id=4)
+c.name = "Bill Shakespeare"
+c.save()
+
+this_book1 = Book.objects.get(id=1)
+this_book2 = Book.objects.get(id=2)
+this_author = Author.objects.get(id=1)
+this_author.books.add(this_book1)
+this_author.books.add(this_book2)
+
+this_book1 = Book.objects.get(id=1)
+this_book2 = Book.objects.get(id=2)
+this_book3 = Book.objects.get(id=3)
+this_author = Author.objects.get(id=2)
+this_author.books.add(this_book1)
+this_author.books.add(this_book2)
+this_author.books.add(this_book3)
+
+this_book1 = Book.objects.get(id=1)
+this_book2 = Book.objects.get(id=2)
+this_book3 = Book.objects.get(id=3)
+this_book4 = Book.objects.get(id=4)
+this_author = Author.objects.get(id=3)
+this_author.books.add(this_book1)
+this_author.books.add(this_book2)
+this_author.books.add(this_book3)
+this_author.books.add(this_book4)
+
+this_book = Book.objects.all()
+this_author = Author.objects.get(id=3)
+this_author.books.add(this_book)
+
+this_publisher = Author.objects.get(id=3)
+this_publisher.books.all()
+
+this_book = Book.objects.get(id=3)
+this_book.publishers.remove(this_publisher)	
+
+this_book = Book.objects.get(id=4)	# retrieve an instance of a book
+this_publisher = Publisher.objects.get(id=2)	# retrieve an instance of a publisher
+    
+Author.objects.create(name = "Mike Write")
+this_author = Author.objects.get(id = 5)
+this_book = Book.objects.get(id=2)
+this_author.books.add(this_book)
+
+
+this_author = Author.objects.get(id=4)
+this_author.Book.objects.get.all()
+
+this_book = Book.objects.get(id=5)
+this_boook.Author.objects.all()

@@ -1,0 +1,59 @@
+class Dojo(models.Model):
+    name = models.CharField(max_length=255)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now_add=True)
+
+
+class Ninja(models.Model):
+    dojo_id = models.ForeignKey(
+        Dojo, related_name='ninjas', on_delete=models.CASCADE)
+    first_name = models.CharField(max_length=255)
+    last_name = models.CharField(max_length=255)
+
+Dojo.objects.create(name="New York")
+Dojo.objects.create(name="Ohio")
+Dojo.objects.create(name="California")
+
+c = Dojo.objects.all().delete()
+
+Dojo.objects.create(name="New York")
+Dojo.objects.create(name="Ohio")
+Dojo.objects.create(name="California")
+
+dojo_one = Dojo.objects.get(id=1)
+dojo_second = Dojo.objects.get(id=2)
+dojo_third = Dojo.objects.get(id=3)
+
+Ninja.objects.create(dojo_id = dojo_one, first_name="Mike", last_name="Peanut")
+Ninja.objects.create(dojo_id = dojo_one, first_name="John", last_name="Seed")
+Ninja.objects.create(dojo_id = dojo_one, first_name="Kyle", last_name="Smith")
+
+Ninja.objects.create(dojo_id = dojo_second, first_name="Saul", last_name="Goodman")
+Ninja.objects.create(dojo_id = dojo_second, first_name="Walter", last_name="White")
+Ninja.objects.create(dojo_id = dojo_second, first_name="Jesse", last_name="Pinkman")
+
+Ninja.objects.create(dojo_id = dojo_third, first_name="Ted", last_name="Mosby")
+Ninja.objects.create(dojo_id = dojo_third, first_name="Barny", last_name="Stinson")
+Ninja.objects.create(dojo_id = dojo_third, first_name="Marshall", last_name="Erickson")
+
+Ninja.objects.filter(dojo_id = 1)
+Ninja.objects.filter(dojo_id = 3)
+
+
+tt = Ninja.objects.filter(dojo_id = 1)
+tt.last()
+
+xx = Ninja.objects.filter(dojo_id = 2)
+xx.last()
+
+ff = Ninja.objects.filter(dojo_id = 3)
+ff.last()
+
+
+desc = models.CharField(max_length=255)
+
+python manage.py makemigrations
+python manage.py migrate
+
+
+Dojo.objects.create(name="South Carolina")
