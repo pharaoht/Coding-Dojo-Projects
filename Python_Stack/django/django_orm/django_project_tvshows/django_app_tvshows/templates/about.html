@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>About {{this_show.title}}</title>
+</head>
+<body>
+    <div class="container">
+        <h1>{{this_show.title}}</h1>
+        <hr>
+        <div>
+            <p>Title: {{this_show.title}}</p>
+            <p>Network: {{this_show.network}}</p>
+            <p>Release Date: {{this_show.release_date}}</p>
+            <p>Description: {{this_show.desc}}</p>
+        </div>
+        <div>
+            <p>Last Updated at: {{this_show.updated_at}}</p>
+            <p><a href="/edit/{{this_show.id}}">Edit </a> | <a href="/delete/{{this_show.id}}">Delete</a> | <a href="/"> GO HOME</a></p> <!--fix edit link-->
+        </div>
+
+    </div>
+    
+</body>
+</html>
