@@ -13,6 +13,13 @@
     <div class="container">
         <h1>{{this_show.title}}</h1><a href="/">Go home</a>
         <hr>
+        {% if messages %}
+        <ul class="messages">
+                {% for message in messages %}
+                    <li>{{ message }}</li>
+                {% endfor %}
+        </ul>
+        {% endif %}
         <form action="/editshow/{{this_show.id}}" method="post">
             {% csrf_token %}
             <span>Title:</span>

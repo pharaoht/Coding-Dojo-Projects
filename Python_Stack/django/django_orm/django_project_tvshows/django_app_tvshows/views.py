@@ -1,8 +1,7 @@
 from django.shortcuts import render, redirect
 from datetime import datetime
 from .models import Show
-from django.db import models
-
+from django.contrib import messages
 # Create your views here.
 
 
@@ -28,13 +27,26 @@ def editshowDISPLAY(request, showId):
 
 
 def editshowPOST(request, showId):
-    now = datetime.now()
-    show = Show.objects.get(id=showId)
-    show.title = request.POST['title']
-    show.network = request.POST['network']
-    show.release_date = request.POST['rdate']
-    show.desc = request.POST['desc']
-    show.save()
+    errors = Show.objects.basic_validator(request.POST)
+
+    # check if the errors dictionary has anything in it
+    if len(errors) > 0:
+        # if the errors dictionary contains anything, loop through each key-value pair and make a flash message
+        for key, value in errors.items():
+            messages.error(request, value)
+            print(messages)
+        # redirect the user back to the form to fix the errors
+        return redirect(f'/edit/{showId}')
+    # else:
+    #     now = datetime.now()
+    #     show = Show.objects.get(id=showId)
+    #     show.title = request.POST['title']
+    #     show.network = request.POST['network']
+    #     show.release_date = request.POST['rdate']
+    #     show.desc = request.POST['desc']
+    #     show.save()
+    #     print("*************")
+    #     print("****************")
     return redirect('/')
 
 
