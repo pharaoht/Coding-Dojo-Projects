@@ -37,7 +37,8 @@
         </div>
         <div class="log">
             <h1>Login</h1>
-            <form action="" method="get">
+            <form action="/login" method="POST">
+                {% csrf_token %}
             <span>Email</span>
             <p><input type="text" name="email"></p>
             <span>Password</span>

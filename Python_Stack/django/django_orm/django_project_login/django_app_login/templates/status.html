@@ -10,9 +10,28 @@
     <title>Document</title>
 </head>
 <body>
-    <div class="container">
+    <div class="container" style="margin-top: 25px;">
         <h1>Welcome {{user.first_name}}</h1>
         <a href="/logout">logout</a>
+        <hr>
+        <div class="reg" style="display: flex; ">
+            <div style="width: 50%;">
+                <h1>Add a favorite book</h1>
+              
+                <form action="" method="POST">
+                    {% csrf_token %}
+                    <span>Title</span>
+                    <p><input type="text" name="title"></p>
+                    <span>Description</span>
+                    <p><textarea name="desc" id="" cols="25" rows="5"></textarea></p>
+                </form>
+            </div>
+            <div>
+                e
+            </div>
+
+        </div>
     </div>
 </body>
 </html>
+

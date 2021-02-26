@@ -1,6 +1,7 @@
 from django.db import models
 from datetime import date
 import re
+import bcrypt
 # Create your models here.
 
 
@@ -42,6 +43,18 @@ class UserManager(models.Manager):
            # errors['birthdaycheck'] = "Birthday is required"
         # elif formInfo['birthday'] < str(today):
             #errors['futureerror'] = "Birthday can not be in the future"
+
+        return errors
+
+    def login_validator(self, formInfo):
+        errors = {}
+        emailTaken = User.objects.filter(email=formInfo['email'])
+
+        if len(emailTaken) == 0:
+            errors['emailnot'] = "Email can not be found"
+
+        elif not bcrypt.checkpw(formInfo['password'].encode(),  emailTaken[0].pasword.encode()):
+            errors['errorpassword'] = "Incorrect password"
 
         return errors
 

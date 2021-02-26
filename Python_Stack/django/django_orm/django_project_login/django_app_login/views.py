@@ -32,6 +32,7 @@ def regPOST(request):
 
 def status(request):
     if 'loggedInUserId' not in request.session:
+        messages.error(request, "You must be logged in to view that page")
         return redirect('/')
 
     context = {
@@ -43,3 +44,18 @@ def status(request):
 def logout(request):
     request.session.clear()
     return redirect('/')
+
+
+def login(request):
+
+    errorsvalidate = User.objects.login_validator(request.POST)
+    if len(errorsvalidate) > 0:
+        for key, value in errorsvalidate.items():
+            messages.error(request, value)
+        return redirect('/')
+
+    matchingEmail = User.objects.filter(email=request.POST['email'])
+
+    request.session['loggedInUserId'] = matchingEmail[0].id
+
+    return redirect('/status')
