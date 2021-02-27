@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container" style="margin-top: 30px;">
+        <div style="display: flex;">
+            <div style="width: 80%;">
+                <h3>Welcome, {{user.first_name}}</h3>
+            </div>
+            <div style="display: flex;">
+                 <a href='/editaccount/{{user.id}}'>Edit Account</a> &nbsp; | &nbsp;
+                <form action='/logout' method="POST">
+                    {% csrf_token %}
+                    <button type="submit">Logout</button>
+                </form>
+            </div>
+        </div>
+        
+
+       <div class="" style="display: flex;">
+        <div style="width: 50%;">
+            <h1>All Quotes</h1>
+                {% for quote in allposts %}
+                <div style="border: 1px solid black; padding: 10px; width: 80%;" >
+                    <h3>{{quote.author}}</h3>
+                    <p>{{quote.quote}}</p>
+                    <hr>
+                    <p>Posted by: <a href='/userQuotes/{{quote.posted_by.id}}'>{{quote.posted_by.first_name}}</a></p>
+                    
+                    {% if quote.posted_by == user %}
+                    <p>
+                        <form action="/delete/{{quote.id}}" method="POST">
+                            {% csrf_token %}
+                            <button type="submit">Delete</button>
+                        </form>
+                    </p>
+                    {% endif %}
+                    
+                </div>
+                <br>
+                {% endfor %}
+            
+
+
+        </div>
+        <div>
+            <h1>Add New Quote</h1>
+                {% if messages %}
+                <div class="messages">
+                    {% for message in messages %}
+                    <p style="color: red;">{{ message }}</p>
+                    {% endfor %}
+                </div>
+                {% endif %}
+            <div style="border: 1px solid black; text-align: center; padding: 10px;">
+                <form action="/addQuote" method="post">
+                    {% csrf_token %}
+                    <span>Author</span>
+                    <p><input type="text" name="author"></p>
+                    <span>Description</span>
+                    <p><textarea name="desc"></textarea></p>
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
+
+        </div>
+       </div>
+    </div>
+
+</body>
+
+</html>
