@@ -4,11 +4,47 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'login.css' %}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <title>Sign In</title>
 </head>
 <body>
     <div class="container">
-        <h1>hi</h1>
+        <div class="holder">
+        <div class="top-left">
+            <div class="head-left">
+                <h2>Register</h2>
+            </div>
+            <hr>
+            <form action="/registerUser" method="post">
+                <span>User name</span>
+                <p><input type="text" name="username"></p>
+                <span>Email</span>
+                <p><input type="text" name="email"></p>
+                <span>Password</span>
+                <p><input type="number" name="password"></p>
+                <span>Confirm Password</span>
+                <p><input type="number"></p>
+                <button  class="btn btn-info btn-lg" type="submit">Register!</button>
+            </form>
+        </div>
+        <div class="top-right">
+            <div class="head-right">
+                <h2>Log In</h2>
+            </div>
+            <hr>
+            <form action="/loginUser" method="post">
+                <span>Email</span>
+                <p><input type="text" name="email"></p>
+                <span>Password</span>
+                <p><input type="number" name="password"></p>
+                <button type="submit" class="btn btn-primary btn-lg">Log In!</button>
+            </form>
+        </div>
+        </div>
+        <hr>
+        <h1>Stay up to date with everything Marcela</h1>
     </div>
 </body>
 </html>
