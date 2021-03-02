@@ -11,5 +11,69 @@ nav {
 }
 
 .header {
-  margin-bottom: 30px;
+  display: flex;
+}
+
+.recent-posts {
+  width: 60%;
+}
+
+.post:hover {
+  transform: scale(1.021);
+  transition-duration: 0.3s;
+}
+
+.create-form {
+  margin-left: 10%;
+  text-align: center;
+  box-shadow: 0 10px 6px -6px #777;
+}
+
+.form {
+  border: 1px solid black;
+  border-radius: 10px;
+  padding: 40px;
+  text-align: center;
+  background-image: linear-gradient(antiquewhite, bisque);
+}
+
+input {
+  border-radius: 10px;
+  border: 1px solid black;
+  width: 100%;
+}
+
+textarea {
+  border-radius: 10px;
+}
+
+.post {
+  border: 1px solid black;
+  border-radius: 10px;
+  box-shadow: 0 10px 6px -6px #777;
+}
+
+img {
+  max-width: 100%;
+  filter: sepia(0%) saturate(70%) brightness(90%);
+  border-radius: 10px;
+}
+
+img:hover {
+  filter: sepia(0%) saturate(100%) brightness(100%);
+}
+
+.img-holder {
+  text-align: center;
+  padding: 10px;
+}
+
+.post-info {
+  padding: 10px;
+}
+
+.post-info p {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }

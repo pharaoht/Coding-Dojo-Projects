@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {% load static %}
     <link rel="stylesheet" href="{% static 'home.css' %}">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <title>Welcome to All About Marcela</title>
 </head>
@@ -14,7 +14,7 @@
     <div class="container">
         <nav>
             <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab"
+                <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#" role="tab"
                     aria-controls="nav-home" aria-selected="true">Welcome to All About Marcela</a>
                 <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#" role="tab"
                     aria-controls="nav-profile" aria-selected="false">Socials</a>
@@ -25,15 +25,35 @@
             </div>
         </nav>
         <div class="header">
-            <h1>Recent Posts</h1>
-            <hr>
-        </div>
-        <div class="feed">
-            <div class="timeline">
-                
-            </div>
-            <div class="upload">
+            <div class="recent-posts">
+                <h1>Recent Posts</h1>
+                <hr>
+                <div class="post">
+                    <div class="img-holder"> 
+                        <img src="http://cdn.cnn.com/cnnnext/dam/assets/181010131059-australia-best-beaches-cossies-beach-cocos3.jpg"
+                            alt="beach">
+                    </div>
+                    <div class="post-info">
+                        <h4>Title</h4>
+                    
+                        <p>dwugjyhv hvhvhn hjbvhjb  mh kjbrgkjds r gm rg jrkdngksdjnkjrfv jbkjbvkjdrzgnm klrnzdglknz  jzgndjkgbirezgf  j zjknkgjrbs r jk  kjgerabgih kvnb</p>
+                    </div>
 
+                </div>
+            </div>
+            <div class="create-form">
+                <h1>Create Post</h1>
+                <div class="form">
+                    <form action="/createPost" method="post">
+                        <span>Title</span>
+                        <p><input type="text" name="title"></p>
+                        <span>Image</span>
+                        <p><input type="text" name="img"></p>
+                        <span>Description</span>
+                        <p><textarea name="desc" cols="30" rows="10"></textarea></p>
+                        <button class="btn btn-info btn-md" type="submit">Post it!</button>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
