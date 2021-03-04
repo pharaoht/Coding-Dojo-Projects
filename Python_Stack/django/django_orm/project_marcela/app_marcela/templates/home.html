@@ -6,21 +6,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {% load static %}
     <link rel="stylesheet" href="{% static 'home.css' %}">
-    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="{% static 'home.js' %}" type="text/javascript"></script>
     <title>Welcome to All About Marcela</title>
 </head>
 <body>
     <div class="container">
+        <div id="myModal" class="modal">
+            <div class="modal-content">
+                <div class="photo-content">
+                    <img id="4" style="margin-right: 40px; max-width: 50%;">
+                    <div class="comment-content">
+                         <h3 id='3'></h3>
+                         <p id="5"></p>
+                         <p id='6'></p>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
         <nav>
             <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#" role="tab"
+                <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="/" role="tab"
                     aria-controls="nav-home" aria-selected="true">Welcome to All About Marcela</a>
-                <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#" role="tab"
+                <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="/socials" role="tab"
                     aria-controls="nav-profile" aria-selected="false">Socials</a>
-                <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#" role="tab"
+                <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="/about" role="tab"
                     aria-controls="nav-contact" aria-selected="false">About</a>
-                <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#" role="tab"
+                <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="/logout" role="tab"
                     aria-controls="nav-contact" aria-selected="false">Logout</a>
             </div>
         </nav>
@@ -28,23 +43,40 @@
             <div class="recent-posts">
                 <h1>Recent Posts</h1>
                 <hr>
+                {% for post in allposts%}
                 <div class="post">
                     <div class="img-holder"> 
-                        <img src="http://cdn.cnn.com/cnnnext/dam/assets/181010131059-australia-best-beaches-cossies-beach-cocos3.jpg"
-                            alt="beach">
+                        <img class="post-img" src="{{post.img}}"
+                            alt="{{post.title}}" onclick="display('{{post.title}}', '{{post.img}}', '{{post.desc}}', '{{post.posted_at}}')">
                     </div>
                     <div class="post-info">
-                        <h4>Title</h4>
-                    
-                        <p>dwugjyhv hvhvhn hjbvhjb  mh kjbrgkjds r gm rg jrkdngksdjnkjrfv jbkjbvkjdrzgnm klrnzdglknz  jzgndjkgbirezgf  j zjknkgjrbs r jk  kjgerabgih kvnb</p>
+                        <h3 id="2">{{post.title}}</h3>
+                        <p>{{post.desc}}</p>
+                        <div class="date-area">
+                        <span class="posted-at">{{post.posted_at}}</span>
+                        <form action="/like/{{user.id}}" method="post">
+                            <button class="bstn" type="submit"><i id='like' class="fa fa-heart-o"></i></button>
+                        </form>
+                        {% if user.id == 1%}
+                        <form action="/delete/{{post.id}}" method="post">
+                            {% csrf_token %}
+                            <button class="bstn" type="submit"><i id='trash' class="fa fa-trash"></i></button>
+                        </form>
+                        {% endif %}
+                        
+                        </div>
                     </div>
 
                 </div>
+                {% endfor %}
             </div>
+            {% if user.id == 1%}
             <div class="create-form">
                 <h1>Create Post</h1>
                 <div class="form">
+                    <p>Hello Marcela,</p>
                     <form action="/createPost" method="post">
+                        {% csrf_token %}
                         <span>Title</span>
                         <p><input type="text" name="title"></p>
                         <span>Image</span>
@@ -55,6 +87,25 @@
                     </form>
                 </div>
             </div>
+            {% endif %}
+            {% if user.id > 1%}
+            <div class="menu-create">
+                <h1>Menu</h1>
+                <div class="menu-form">
+                    <p>Hello {{user.user_name}},</p>
+                    <hr>
+                    <p class="font-menu"><a href="#" onclick="alert('This feature is coming soon...')">Most Liked Post</a></p>
+                    <hr>
+                    <p class="font-menu"><a href="#" onclick="alert('This feature is coming soon...')">Your comments</a></p>
+                    <hr>
+                    <p class="font-menu"><a href="#" onclick="alert('This feature is coming soon...')">Your Likes</a></p>
+                    <hr>
+                    <p class="font-menu"><a href="#" onclick="alert('This feature is coming soon...')">Message Mar</a></p>
+                    <hr>
+                    <p class="font-menu"><a href="#" onclick="alert('This feature is coming soon...')">My Account</a></p>
+                </div>
+            </div>
+            {% endif %}
         </div>
     </div>
 </body>

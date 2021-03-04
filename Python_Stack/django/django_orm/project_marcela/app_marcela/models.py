@@ -1,5 +1,6 @@
 from django.db import models
 import re
+import bcrypt
 # Create your models here.
 
 
@@ -17,6 +18,37 @@ class UserManager(models.Manager):
 
         if len(formInfo['email']) == 0:
             errors['emailLenCheck'] = "Email field is required"
+        elif not EMAIL_REGEX.match(formInfo['email']):
+            errors['emailnotmatch'] = 'Invalid email'
+        elif len(emailChecker) > 0:
+            errors['emailtaken'] = 'Sorry, that email is already resgistered'
+
+        if len(formInfo['password']) == 0:
+            errors['passworcheck'] = "A password is required"
+        elif len(formInfo['password']) < 8:
+            errors['passwordlengthcheck'] = "Password must be 8 characters long"
+
+        if formInfo['password'] != formInfo['cpassword']:
+            errors['psmatch'] = "Your Password must be the same as confirmed password"
+
+        return errors
+
+    def login_validator(self, formInfo):
+        errors = {}
+        emailChecker = User.objects.filter(email=formInfo['email'])
+
+        if len(formInfo['email']) == 0:
+            errors['emallencheck'] = "Email field can not be empty"
+
+        elif len(emailChecker) == 0:
+            errors['emailcheck'] = "Sorry that email, could not be found."
+
+        if len(formInfo['password']) == 0:
+            errors['passwordcheck'] = "Password field can not be empty"
+
+        if len(emailChecker) != 0:
+            if not bcrypt.checkpw(formInfo['password'].encode(),  emailChecker[0].password.encode()):
+                errors['errorpassword'] = "Incorrect password"
 
         return errors
 
@@ -42,3 +74,4 @@ class Post(models.Model):
     posted_by = models.ForeignKey(
         User, related_name="uploader", on_delete=models.CASCADE)
     liked_by = models.ManyToManyField(User, related_name='likes')
+    created_at = models.DateTimeField(auto_now_add=True, null=True)

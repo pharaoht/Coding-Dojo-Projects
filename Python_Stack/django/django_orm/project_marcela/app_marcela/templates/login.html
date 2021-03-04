@@ -11,6 +11,13 @@
 </head>
 <body>
     <div class="container">
+            {% if messages %}
+            <div class="messages">
+            {% for message in messages %}
+            <span class="alert alert-danger" role="alert">{{ message }}</span>
+            {% endfor %}
+            </div>
+            {% endif %}
         <div class="holder">
         <div class="top-left">
             <div class="head-left">
@@ -18,14 +25,15 @@
             </div>
             <hr>
             <form action="/registerUser" method="post">
+                {% csrf_token %}
                 <span>User name</span>
                 <p><input type="text" name="username"></p>
                 <span>Email</span>
                 <p><input type="text" name="email"></p>
                 <span>Password</span>
-                <p><input type="number" name="password"></p>
+                <p><input type="password" name="password"></p>
                 <span>Confirm Password</span>
-                <p><input type="number"></p>
+                <p><input type="password" name="cpassword"></p>
                 <button  class="btn btn-info btn-lg" type="submit">Register!</button>
             </form>
         </div>
@@ -35,10 +43,11 @@
             </div>
             <hr>
             <form action="/loginUser" method="post">
+                {% csrf_token %}
                 <span>Email</span>
                 <p><input type="text" name="email"></p>
                 <span>Password</span>
-                <p><input type="number" name="password"></p>
+                <p><input type="password" name="password"></p>
                 <button type="submit" class="btn btn-primary btn-lg">Log In!</button>
             </form>
         </div>
