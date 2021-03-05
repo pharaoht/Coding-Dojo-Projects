@@ -12,5 +12,5 @@ urlpatterns = [
     path('socials', views.socials),
     path('about', views.about),
     path('delete/<int:postID>', views.deletePost),
-    path('like/<int:userID>', views.likePost)
+    path('like/<int:userID>/<int:postID>', views.likePost)
 ]

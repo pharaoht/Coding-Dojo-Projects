@@ -25,7 +25,6 @@
                 </div>
 
             </div>
-
         </div>
         <nav>
             <div class="nav nav-tabs" id="nav-tab" role="tablist">
@@ -54,7 +53,8 @@
                         <p>{{post.desc}}</p>
                         <div class="date-area">
                         <span class="posted-at">{{post.posted_at}}</span>
-                        <form action="/like/{{user.id}}" method="post">
+                        <form action="/like/{{user.id}}/{{post.id}}" method="post">
+                            {% csrf_token %}
                             <button class="bstn" type="submit"><i id='like' class="fa fa-heart-o"></i></button>
                         </form>
                         {% if user.id == 1%}
@@ -107,6 +107,7 @@
             </div>
             {% endif %}
         </div>
+        
     </div>
 </body>
 </html>

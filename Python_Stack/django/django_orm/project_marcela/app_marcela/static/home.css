@@ -110,6 +110,9 @@ textarea {
   color: red;
 }
 
+#like::focus {
+}
+
 #trash {
   color: black;
 }

@@ -82,8 +82,11 @@ def about(request):
     return render(request, 'about.html')
 
 
-def likePost(request, userID):
+def likePost(request, userID, postID):
 
+    this_user = User.objects.get(id=userID)
+    this_post = Post.objects.get(id=postID)
+    this_post.liked_by.add(this_user)
     return redirect('/home')
 
 
