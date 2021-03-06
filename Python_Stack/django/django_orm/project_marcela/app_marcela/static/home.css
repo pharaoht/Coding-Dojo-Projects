@@ -7,11 +7,21 @@ a {
 }
 
 nav {
-  margin-bottom: 30px;
+}
+
+#nav-home-tab {
+  background-color: #b1dae7;
+  border: none;
 }
 
 .header {
   display: flex;
+  padding-top: 30px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 3px;
+  margin-bottom: 30px;
+  background-image: linear-gradient(#b1dae7, white);
 }
 
 .recent-posts {
@@ -26,7 +36,6 @@ nav {
 .create-form {
   margin-left: 10%;
   text-align: center;
-  box-shadow: 0 10px 6px -6px #777;
 }
 
 .form {
@@ -35,6 +44,7 @@ nav {
   padding: 40px;
   text-align: center;
   background-image: linear-gradient(antiquewhite, bisque);
+  box-shadow: 0 10px 6px -6px #777;
 }
 
 input {
@@ -52,10 +62,12 @@ textarea {
   border-radius: 10px;
   box-shadow: 0 10px 6px -6px #777;
   margin-bottom: 40px;
+  background-color: white;
 }
 
 .post-img {
   max-width: 100%;
+  max-height: 400px;
   filter: sepia(0%) saturate(70%) brightness(90%);
   border-radius: 10px;
 }
@@ -106,15 +118,30 @@ textarea {
   font-size: 30px;
 }
 
+.bstn:focus {
+  transform: scale(0.8);
+  transition-duration: 0.2s;
+  outline: none;
+}
+
 #like {
   color: red;
 }
 
-#like::focus {
+#like:hover {
+  color: rgb(184, 63, 63);
+}
+
+#like {
+  border: none;
 }
 
 #trash {
   color: black;
+}
+
+#trash:hover {
+  color: rgb(187, 161, 161);
 }
 
 .modal {
@@ -134,7 +161,7 @@ textarea {
 /* Modal Content/Box */
 .modal-content {
   background-color: #fefefe;
-  margin: 15% auto; /* 15% from the top and centered */
+  margin: 5% auto; /* 15% from the top and centered */
   padding: 40px;
   border: 1px solid #888;
   width: 60%; /* Could be more or less, depending on screen size */
@@ -156,11 +183,18 @@ textarea {
 }
 
 .photo-content {
-  width: 100%;
-  height: 100%;
+  max-height: 600px;
   display: flex;
 }
 
 .comment-content {
   width: 50%;
+}
+
+.like-total {
+  background-color: white;
+  border: none;
+  outline: none;
+  padding: 0%;
+  color: black;
 }

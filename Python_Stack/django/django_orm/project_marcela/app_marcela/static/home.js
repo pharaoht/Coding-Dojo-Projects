@@ -1,17 +1,7 @@
+var jQueryScript = document.createElement('script');  
+jQueryScript.setAttribute('src','https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js');
+document.head.appendChild(jQueryScript);
 
-
-
-
-// Get the modal
-
-
-// Get the button that opens the modal
-
-
-// Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
-
-// When the user clicks on the button, open the modal
 function display(title, img, desc, post_at){
   var modal = document.getElementById("myModal");
   console.log(title)
@@ -23,16 +13,72 @@ function display(title, img, desc, post_at){
   document.getElementById('6').innerHTML = post_at;
 }
 
-// When the user clicks on <span> (x), close the modal
 function close() {
   var modal = document.getElementById("myModal");
   modal.style.display = "none";
 }
 
-// When the user clicks anywhere outside of the modal, close it
+
+function displayMyAccountModal(){
+  var modal = document.getElementById('myAccoundModal')
+
+  modal.style.display = 'block';
+
+}
+
+function closeMyAccountModal(){
+  var modal = document.getElementById('myAccoundModal')
+
+  modal.style.display = "none"
+}
+
+
+
+
 window.onclick = function(event) {
   var modal = document.getElementById("myModal");
   if (event.target == modal) {
     modal.style.display = "none";
   }
+}
+
+window.addEventListener('scroll',function() {
+    localStorage.setItem('scrollPosition',window.scrollY);
+},false);
+
+window.addEventListener('load',function() {
+    if(localStorage.getItem('scrollPosition') !== null)
+       window.scrollTo(0, localStorage.getItem('scrollPosition'));
+},false);
+
+
+function activeSocialTab(){
+  var element = document.getElementById('nav-profile-tab')
+  var welcomeTab = document.getElementById('nav-home-tab')
+  var aboutTabElement = document.getElementById('nav-contact-tab')
+  var headd = document.getElementById('mainheader')
+  welcomeTab.style.backgroundColor = "white"
+  welcomeTab.classList.remove('active')
+  aboutTabElement.classList.remove('active')
+  element.classList.add('active')
+  element.style.backgroundColor = "LightSkyBlue"
+    aboutTabElement.style.backgroundColor = "white"
+  headd.style.backgroundImage = "linear-gradient(LightSkyBlue, white)"
+  element.style.borderBottom = "none"
+}
+
+function activeAboutTab(){
+  var aboutTabElement = document.getElementById('nav-contact-tab')
+  var socialTab = document.getElementById('nav-profile-tab')
+  var welcomeTab = document.getElementById('nav-home-tab')
+  var headd = document.getElementById('mainheader')
+
+  aboutTabElement.classList.add('active')
+  aboutTabElement.style.backgroundColor = "SkyBlue"
+  aboutTabElement.style.borderBottom = "none"
+  headd.style.backgroundImage = "linear-gradient(SkyBlue, white)"
+
+   welcomeTab.style.backgroundColor = "white"
+   socialTab.style.backgroundColor = "white"
+   socialTab.classList.remove('active')
 }

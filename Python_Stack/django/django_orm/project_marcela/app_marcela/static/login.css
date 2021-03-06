@@ -1,9 +1,10 @@
 .holder {
   display: flex;
   text-align: center;
-  background-image: linear-gradient(360deg, white 10%, white 360%);
+  background-image: linear-gradient(360deg, white, LightBlue 360%);
   padding: 10px;
   padding-bottom: 30px;
+  border-radius: 10px;
 }
 
 .top-left {
@@ -28,10 +29,6 @@ input {
   padding-bottom: 30px;
   background-image: linear-gradient(360deg, #b1dae7 10%, #0698b1 360%);
   box-shadow: 0 10px 6px -6px #777;
-}
-
-.head-left,
-.head-right {
 }
 
 html,

@@ -62,7 +62,8 @@ def home(request):
 
     context = {
         'allposts': Post.objects.all().order_by("-created_at"),
-        'user': User.objects.get(id=request.session['loggedInUser'])
+        'user': User.objects.get(id=request.session['loggedInUser']),
+
     }
     return render(request, 'home.html', context)
 
@@ -83,10 +84,13 @@ def about(request):
 
 
 def likePost(request, userID, postID):
-
     this_user = User.objects.get(id=userID)
     this_post = Post.objects.get(id=postID)
-    this_post.liked_by.add(this_user)
+    if this_user not in this_post.liked_by.all():
+        this_post.liked_by.add(this_user)
+    elif this_user in this_post.liked_by.all():
+        this_post.liked_by.remove(this_user)
+
     return redirect('/home')
 
 
