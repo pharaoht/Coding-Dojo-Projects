@@ -123,7 +123,7 @@
                     <hr>
                     <p class="font-menu"><a href="#" onclick="alert('This feature is coming soon...')">Message Mar</a></p>
                     <hr>
-                    <p class="font-menu"><a href="#" onclick="displayMyAccountModal()">My Account</a></p>
+                    <p class="font-menu"><a href="#" onclick="displayMyAccountModal('{{user.id}}', '{{user.user_name}}', '{{user.email}}', '{{user.password}}', '{{created_at}}')">My Account</a></p>
                 </div>
             </div>
             {% endif %}

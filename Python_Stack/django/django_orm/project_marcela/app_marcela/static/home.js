@@ -19,7 +19,7 @@ function close() {
 }
 
 
-function displayMyAccountModal(){
+function displayMyAccountModal(id, username, email, password, created_at){
   var modal = document.getElementById('myAccoundModal')
 
   modal.style.display = 'block';
