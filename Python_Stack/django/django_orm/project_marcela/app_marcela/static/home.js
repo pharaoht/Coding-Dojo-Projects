@@ -13,32 +13,38 @@ function display(title, img, desc, post_at){
   document.getElementById('6').innerHTML = post_at;
 }
 
-function close() {
-  var modal = document.getElementById("myModal");
-  modal.style.display = "none";
-}
+
 
 
 function displayMyAccountModal(id, username, email, password, created_at){
   var modal = document.getElementById('myAccoundModal')
+  modal.style.display = 'block';
+  document.getElementById('accmodh3').innerHTML = "Hello, " + username; 
+  document.getElementById('accmodptag').innerHTML = created_at
 
+}
+
+function displayMyLikes(){
+  var modal = document.getElementById('mylikesModal')
   modal.style.display = 'block';
 
 }
 
-function closeMyAccountModal(){
-  var modal = document.getElementById('myAccoundModal')
-
-  modal.style.display = "none"
-}
-
-
-
-
 window.onclick = function(event) {
   var modal = document.getElementById("myModal");
+  var modal2 = document.getElementById('myAccoundModal')
+  var modal3 = document.getElementById('mylikesModal')
+
   if (event.target == modal) {
     modal.style.display = "none";
+  }
+
+   if (event.target == modal2) {
+    modal2.style.display = "none";
+  }
+
+  if(event.target == modal3){
+    modal3.style.display = "none"
   }
 }
 
