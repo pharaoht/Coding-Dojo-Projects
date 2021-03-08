@@ -63,6 +63,9 @@ function activeSocialTab(){
   var welcomeTab = document.getElementById('nav-home-tab')
   var aboutTabElement = document.getElementById('nav-contact-tab')
   var headd = document.getElementById('mainheader')
+  var postDiv = document.getElementById('post-div-1')
+  var postDiv2 = document.getElementById('post-div-2')
+
   welcomeTab.style.backgroundColor = "white"
   welcomeTab.classList.remove('active')
   aboutTabElement.classList.remove('active')
@@ -71,6 +74,10 @@ function activeSocialTab(){
     aboutTabElement.style.backgroundColor = "white"
   headd.style.backgroundImage = "linear-gradient(LightSkyBlue, white)"
   element.style.borderBottom = "none"
+  postDiv.style.display = "none"
+  postDiv2.style.display = "block"
+
+
 }
 
 function activeAboutTab(){

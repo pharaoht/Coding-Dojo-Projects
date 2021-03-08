@@ -202,3 +202,7 @@ textarea {
 .updateaccount {
   width: 25%;
 }
+
+.new-div {
+  display: none;
+}

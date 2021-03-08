@@ -57,7 +57,7 @@
                </div>
             </div>
         </div>
-
+        <!--likes modal-->
         <div id="mylikesModal" class="modal">
             <div class="modal-content">
                 <div class="container">
@@ -66,8 +66,6 @@
 
             </div>
         </div>
-
-
     <!--end of modals-->
         <nav>
             <div class="nav nav-tabs" id="nav-tab" role="tablist">
@@ -82,7 +80,7 @@
             </div>
         </nav>
         <div class="header" id='mainheader'>
-            <div class="recent-posts">
+            <div class="recent-posts" id="post-div-1">
                 <h1>Recent Posts</h1>
                 <hr>
                 {% for post in allposts%}
@@ -118,6 +116,9 @@
 
                 </div>
                 {% endfor %}
+            </div>
+            <div class="recent-post new-div" id='post-div-2'>
+                <h1>Hi</h1>
             </div>
             {% if user.id == 1%}
             <div class="create-form">
