@@ -6,9 +6,6 @@ a {
   font-size: 2.5em !important;
 }
 
-nav {
-}
-
 #nav-home-tab {
   background-color: #b1dae7;
   border: none;
@@ -17,9 +14,9 @@ nav {
 .header {
   display: flex;
   padding-top: 30px;
-  padding-left: 10px;
+  padding-left: 40px;
   padding-right: 10px;
-  border-radius: 3px;
+  border-radius: 5px;
   margin-bottom: 30px;
   background-image: linear-gradient(#b1dae7, white);
 }
@@ -203,6 +200,38 @@ textarea {
   width: 25%;
 }
 
-.new-div {
+/*Social Page Css*/
+.social-div-info {
   display: none;
+  width: 60%;
 }
+
+.social-instagram {
+  display: flex;
+  border: 1px solid grey;
+  padding: 10px;
+  background-image: linear-gradient(honeydew, white);
+  border-radius: 15px;
+  box-shadow: 0 10px 6px -6px #777;
+}
+
+.social-insta-img-holder {
+  width: 50%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.soc-img {
+  width: 45%;
+  margin: 5px;
+  border-radius: 10px;
+}
+
+.expand:hover {
+  transform: scale(1.2);
+  transition-duration: 0.2s;
+}
+
+.social-insta-text-holder {
+}
+/*Social Page Css*/

@@ -95,3 +95,10 @@ function activeAboutTab(){
    socialTab.style.backgroundColor = "white"
    socialTab.classList.remove('active')
 }
+
+function activeWelcomeTab(){
+  var postDiv = document.getElementById('post-div-1')
+  var postDiv2 = document.getElementById('post-div-2')
+  postDiv.style.display = "block"
+  postDiv2.style.display = "none"
+}

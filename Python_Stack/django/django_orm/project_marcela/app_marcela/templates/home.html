@@ -70,7 +70,7 @@
         <nav>
             <div class="nav nav-tabs" id="nav-tab" role="tablist">
                 <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="/home" role="tab"
-                    aria-controls="nav-home tab-pane fade" aria-selected="true">Welcome to All About Marcela</a>
+                    aria-controls="nav-home tab-pane fade" aria-selected="true" onclick="activeWelcomeTab()">Welcome to All About Marcela</a>
                 <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#" role="tab"
                     aria-controls="nav-profile" aria-selected="false" onclick="activeSocialTab()">Socials</a>
                 <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#" role="tab"
@@ -97,7 +97,6 @@
                         <button class="like-total" disabled>{{post.liked_by.count}}</button>
                         <form action="/like/{{user.id}}/{{post.id}}" method="post">
                             {% csrf_token %}
-                            
                             {% if user not in post.liked_by.all %}
                             <button class="bstn" type="submit"><i id='like' class="fa fa-heart-o"></i></button>
                             {% elif user in post.liked_by.all %}
@@ -117,9 +116,40 @@
                 </div>
                 {% endfor %}
             </div>
-            <div class="recent-post new-div" id='post-div-2'>
-                <h1>Hi</h1>
+            <!--Social Div-->
+            <div class="social-div-info" id='post-div-2'>
+                <h1>My Social Accounts</h1>
+                <hr>
+                <div class="info-social">
+                    <div class="social-instagram">
+                        <div class="social-insta-img-holder">
+                            <img class="soc-img expand" src="https://i.imgur.com/FpAinh1.png" alt="social photo">
+                            <img class="soc-img expand" src="https://i.imgur.com/ZA4Icj0.png" alt="social-photo">
+                            <img class="soc-img expand" src="https://i.imgur.com/sqpVLwa.png" alt="social-photo">
+                            <img class="soc-img" src="https://i.imgur.com/VkGLR0m.png" alt="">
+
+                        </div>
+                        <div class="social-insta-text-holder">
+                            <h3>Instagram</h3>
+                            <hr>
+                            <p>
+                                𝓜 𝓪 𝓻
+                                🌙🌊🌼🐘🌵🐚🌱☀️
+                            </p>
+                            <p>
+                                <a target="_blank" rel="noreferrer noopener" href="https://www.instagram.com/mar.payares/">Follow me here!</a>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="facebook">
+                        <p>hi</p>
+                    </div>
+                    <div class="twitter">
+                        <p>hi</p>
+                    </div>
+                </div>
             </div>
+            <!--end of social div-->
             {% if user.id == 1%}
             <div class="create-form">
                 <h1>Create Post</h1>
