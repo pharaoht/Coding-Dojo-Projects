@@ -1,11 +1,11 @@
 import logo from './logo.svg';
 import './App.css';
-import PersonCardFunctional from './components/PersonCardFunctional'
+import HookFormAssignment from './components/HookFormAssignment'
 
 function App() {
   return (
-    <div className="App">
-
+    <div className="container">
+      <HookFormAssignment></HookFormAssignment>
     </div>
   );
 }
