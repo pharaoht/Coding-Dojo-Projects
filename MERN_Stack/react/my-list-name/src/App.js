@@ -1,11 +1,11 @@
 import logo from './logo.svg';
 import './App.css';
-import HookFormAssignment from './components/HookFormAssignment'
+import BoxGenerator from './components/BoxGeneratort'
 
 function App() {
   return (
     <div className="container">
-      <HookFormAssignment></HookFormAssignment>
+      <BoxGenerator></BoxGenerator>
     </div>
   );
 }
