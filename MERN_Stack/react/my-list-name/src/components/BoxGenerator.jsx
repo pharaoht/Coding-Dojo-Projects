@@ -8,6 +8,7 @@ const BoxGenerator = () => {
     const addColor = () =>{
         alert('hi')
     }
+    
     return (
         <div>
             <div className="colorpicker">
