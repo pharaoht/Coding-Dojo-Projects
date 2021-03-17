@@ -1,11 +1,12 @@
 import logo from './logo.svg';
 import './App.css';
-import BoxGenerator from './components/BoxGeneratort'
+import Pokemonapi from './components/Pokemonapi';
+
 
 function App() {
   return (
     <div className="container">
-      <BoxGenerator></BoxGenerator>
+     <Pokemonapi></Pokemonapi>
     </div>
   );
 }

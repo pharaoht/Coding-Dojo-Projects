@@ -36,3 +36,35 @@
     transform: rotate(360deg);
   }
 }
+
+.coloredboxes {
+  border: 1px solid black;
+  width: 20%;
+  height: 100px;
+  margin: 10px;
+}
+.color-holder {
+  display: flex;
+  flex-wrap: wrap;
+}
+.container {
+  margin-top: 30px;
+}
+
+.tabs {
+  display: flex;
+}
+
+.holder {
+}
+
+h3 {
+  border: 1px black solid;
+  margin: 10px;
+  padding: 10px;
+}
+
+.tab-content {
+  border: solid 1px black;
+  padding: 10px;
+}
