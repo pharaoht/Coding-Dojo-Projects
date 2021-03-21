@@ -4,7 +4,7 @@ const RoutingPracticePage1 = (props) => {
 
     return (
     <>
-        <div>Welcome</div>
+        <div><h1>Welcome</h1></div>
     </>
     )
 }

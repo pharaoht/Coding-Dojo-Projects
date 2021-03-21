@@ -4,8 +4,8 @@ const RoutingPracticePage3 = (props) => {
 
     return (
     <>
-        {isNaN(props.num) ? <p>This is not a number</p> 
-        : <div>The number is: {props.num}</div>
+        {isNaN(props.word) ? <div style={{backgroundColor:props.color2}}><h1 style={{color:props.color1}}>This word is: {props.word}</h1></div> 
+        : <div>You need a word</div>
         
     }
         
