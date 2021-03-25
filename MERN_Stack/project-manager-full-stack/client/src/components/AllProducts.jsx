@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
-import Link from '@reach/router'
+import {Link} from '@reach/router'
 
 const AllProducts = () =>{
     const[allProducts, setProuducts] = useState([])
@@ -54,7 +54,8 @@ const AllProducts = () =>{
             {
             allProducts.map((product, idx) =>{
                 return <p key = {idx}>
-                {product.title}
+                <Link to = {`/api/product/${product._id}`}>{product.title}</Link>
+                
                 </p>
             })
             }
