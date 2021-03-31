@@ -1,23 +1,21 @@
 import logo from './logo.svg';
 import './App.css';
+import {Router, Link} from '@reach/router'
+import AllPlayers from './components/AllPlayers';
+import AddPlayer from './components/AddPlayer';
+import EditPlayer from './components/EditPlayer';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="App container">
+      <div>
+        <h3><Link to = '/'>Manage Players</Link></h3>
+      </div>
+    <Router>
+      <AllPlayers path='/'></AllPlayers>
+      <AddPlayer path ='/players/addplayer'></AddPlayer>
+      <EditPlayer path ='/players/edit/:id'></EditPlayer>
+    </Router>
     </div>
   );
 }

@@ -4,21 +4,21 @@ const PlayerSchema = new mongoose.Schema({
     player_firstName: {
         type: String,
         required: [true, "First Name is required"],
-        min: [3, 'First Name must be at least 3 characters'],
-        max:[30, 'First Name is too long, must be lower than 30']
+        minLength: [3, 'First Name must be at least 3 characters'],
+        maxLength:[30, 'First Name is too long, must be lower than 30']
     },
 
     player_lastName:{
         type: String,
         required: [true, "Last Name is required"],
-        min: [3, 'Last Name must be at least 3 characters'],
-        max:[30, 'Last Name is too long, must be lower than 30']
+        minLength: [3, 'Last Name must be at least 3 characters'],
+        maxLength:[30, 'Last Name is too long, must be lower than 30']
     }, 
 
     player_position:{
         type:String,
         required: [true, "You must give this player a valid position"],
-        min: [3, 'Position must be at least 3 characters']
+        minLength: [3, 'Position must be at least 3 characters']
     },
 
     isplaying_game1:{

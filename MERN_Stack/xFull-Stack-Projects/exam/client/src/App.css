@@ -1,7 +1,27 @@
 .App {
-  text-align: center;
 }
 
+.header-table {
+  display: flex;
+}
+
+.create-pet-holder {
+  display: flex;
+  border: solid black 1px;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 10px;
+}
+
+.required-info {
+  width: 40%;
+}
+
+.optional-info {
+}
+.h2-header {
+  margin-right: 25%;
+}
 .App-logo {
   height: 40vmin;
   pointer-events: none;
