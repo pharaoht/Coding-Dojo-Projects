@@ -1,0 +1,17 @@
+for(int i = 0; i < dynamicArray.size(); i++){
+    String name = dynamicArray.get(i);
+    System.out.println("hello " + name);
+    // other operations using name
+}
+
+for(String name : dynamicArray){
+    System.out.println("hello " + name);
+    // other operations using name
+}
+
+int i = 0;
+while(i < 7)
+{
+    System.out.println("foo");
+    i++;
+}

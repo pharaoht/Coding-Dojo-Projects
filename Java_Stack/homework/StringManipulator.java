@@ -16,4 +16,17 @@ public class StringManipulator {
         Integer index = getIndexOrNull(String1, String2);
         return index;
     }
+
+    public static String concatSubstring(String String1, int int1, int int2, String String2) {
+        String str = concatSubstring("Hello", 1, 2, "world");
+        return str;
+    }
+
+    public static void ManipulatorTest() {
+        trimAndConcat("hello", "hello");
+        getIndexOrNull("Low", "1");
+        getIndexOrNull("Good", "goods");
+        concatSubstring("Long", 1, 2, "Penthouse");
+
+    }
 }
