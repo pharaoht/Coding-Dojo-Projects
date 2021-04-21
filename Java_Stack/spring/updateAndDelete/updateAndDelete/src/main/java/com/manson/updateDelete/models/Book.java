@@ -1,7 +1,6 @@
 package com.manson.updateDelete.models;
 
 import java.util.Date;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -96,7 +95,7 @@ public class Book {
     
     
     
-    public Book(String title, String description, String language, Integer numberOfPages) {
+    public Book(Long id, String title, String description, String language, Integer numberOfPages) {
     	this.id = id;
     	this.title = title;
     	this.description = description;
