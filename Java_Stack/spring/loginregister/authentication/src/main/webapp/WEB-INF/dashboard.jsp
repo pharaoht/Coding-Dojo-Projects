@@ -16,7 +16,31 @@
 <div class="container">
  <h1>Hello, ${loggedinuser.firstName}</h1>
     <a href="/logout">log out</a>
-    
+    <a href="/newIdea">Create an Idea</a>
+    <div>
+    	<table class="table">
+    		<thead>
+    			<tr>
+    				<th scope="col">Idea</th>
+    				<th scope="col">Created By:</th>
+    				<th scope="col">Likes</th>
+    				<th scope="col">Actions</th>
+    			</tr>
+    		</thead>
+    		<tbody>
+    			
+    			    <c:forEach items="${allideas}" var="potato">
+    			    <tr>
+    			    	<td><a href="/showIdea/${potato.id}">${potato.content}</a></td>
+    			    	 <td>${potato.creator}</td>
+    			    	<td>0</td>
+    			    	<td>0</td>
+    				</tr>
+    				</c:forEach>
+    			
+    		</tbody>
+    	</table>
+    </div>
 </div>
 </body>
 </html>
